@@ -1,0 +1,28 @@
+<h2>Take care of <%= @tamagotchi.name %>!</h2>
+
+<form action="/tamagotchis/feed/<%= @tamagotchi.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <button name="feed" button type="submit">Feed</button>
+</form>
+<form action="/tamagotchis/sleep/<%= @tamagotchi.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <button name="bedtime" button type="submit">Bedtime</button>
+</form>
+<form action="/tamagotchis/play/<%= @tamagotchi.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <button name="play" button type="submit">Play</button>
+</form>
+
+<h3> Levels: </h3>
+
+<b>Food Level:</b> <%= @tamagotchi.food_level %>
+<br>
+<b> Sleep Level:</b> <%= @tamagotchi.sleep_level %>
+<br>
+<b> Activity Level:</b> <%= @tamagotchi.activity_level %>
+<br>
+
+
+
+
+<a href="/">Back</a>

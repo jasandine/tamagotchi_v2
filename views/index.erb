@@ -1,0 +1,20 @@
+<h1> Tamagotchi! </h1>
+
+<h2> Add a user: </h2>
+
+<form action = "/users" method= "post">
+  <label for="name"> User name:</label>
+  <input id="name" name="name" type="text">
+  <button type="submit"> Add user</button>
+</form>
+
+<% if @users.any?() %>
+<h3> Users:</h3>
+
+<ul>
+  <% @users.each() do |user| %>
+  <li><a href="/users/<%= user.id %>"><%= user.name() %> </a></li>
+  <% end %>
+</ul>
+
+<% end %>

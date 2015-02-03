@@ -1,0 +1,24 @@
+<h1>Add a tamagotchi for <%= @user.name() %> </h1>
+
+<form action="/tamagotchis" method="post">
+  <input id="user_id" name="user_id" type="hidden" value="<%= @user.id() %>">
+
+  <label for="name">Name of tamagotchi:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add tamagotchi</button>
+</form>
+
+<% if @user.tamagotchis().any?() %>
+<h3>tamagotchis for this user:</h3>
+
+<ul>
+  <% @user.tamagotchis().each() do |tamagotchi| %>
+  <li><a href="/tamagotchis/<%= tamagotchi.id %>"><%= tamagotchi.name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>They don't have any tamagotchis yet!</p>
+<% end %>
+
+<a href="/">Return to Main Page</a>
