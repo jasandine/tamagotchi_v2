@@ -22,6 +22,10 @@
 <b> Activity Level:</b> <%= @tamagotchi.activity_level %>
 <br>
 
+<form action="/tamagotchis/time_passes/<%= @tamagotchi.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <button name="time_passes" type="submit">Masochate</button>
+</form>
 
 
 

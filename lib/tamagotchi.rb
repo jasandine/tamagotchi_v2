@@ -44,6 +44,7 @@ define_method(:time_passes) do
   self.food_level = self.food_level - 2
   self.sleep_level = self.sleep_level - 2
   self.activity_level = self.activity_level - 2
+  self.save
 end
 
 

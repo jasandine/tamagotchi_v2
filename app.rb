@@ -1,4 +1,5 @@
 require("bundler/setup")
+require("pry")
 Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
@@ -55,6 +56,15 @@ end
 patch '/tamagotchis/play/:id' do
   @tamagotchi = Tamagotchi.find(params.fetch("id"))
   @tamagotchi.update({:activity_level => @tamagotchi.play})
+
+  url ="/tamagotchis/" + @tamagotchi.id.to_s
+  redirect url
+end
+
+patch '/tamagotchis/time_passes/:id' do
+  @tamagotchi = Tamagotchi.find(params.fetch("id"))
+  @tamagotchi.time_passes
+
 
   url ="/tamagotchis/" + @tamagotchi.id.to_s
   redirect url
